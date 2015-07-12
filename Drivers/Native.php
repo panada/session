@@ -10,7 +10,7 @@ namespace Panada\Session\Drivers;
  * @author      Iskandar Soesman
  * @since       Version 0.1
  */
-class Native implements \Panada\Session\Interfaces
+class Native implements \Panada\SessionInterfaces
 {
     /**
      * @var integer    This variable set the maximum life in seconds of a session file on the server since last activity.

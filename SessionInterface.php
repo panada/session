@@ -1,6 +1,6 @@
 <?php
 
-namespace Panada\Session\Interfaces;
+namespace Panada\Session;
 
 /**
  * Interface for Session Drivers
@@ -11,7 +11,7 @@ namespace Panada\Session\Interfaces;
  * @license  http://www.opensource.org/licenses/bsd-license.php
  * @since    version 1.0.0
  */
-interface Session
+interface SessionInterfaces
 {
     public function setValue($name, $value = '');
     public function getValue($name);
