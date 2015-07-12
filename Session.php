@@ -18,7 +18,7 @@ class Session
     private $driver;
     private $config = [
         'expiration' => 7200,
-        'name' => 'PAN_SID',
+        'name' => 'PANSID',
         'cookieExpire' => 0,
         'cookiePath' => '/',
         'cookieSecure' => false,

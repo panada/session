@@ -20,7 +20,7 @@ class Native implements \Panada\Session\SessionInterface
     /**
      * @var string    Change the default PHP session name (PHPSESSIONID) to Panada session name (PAN_SID).
      */
-    public $sessionName = 'PAN_SID';
+    public $sessionName = 'PANSID';
 
     /**
      * @var integer    Sets the session cookies to N seconds.
