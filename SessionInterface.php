@@ -11,7 +11,7 @@ namespace Panada\Session;
  * @license  http://www.opensource.org/licenses/bsd-license.php
  * @since    version 1.0.0
  */
-interface SessionInterfaces
+interface SessionInterface
 {
     public function setValue($name, $value = '');
     public function getValue($name);

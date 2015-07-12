@@ -15,6 +15,7 @@ use Panada\Resources;
  */
 class Session
 {
+    private $driver;
     private $config = [
         'expiration' => 7200,
         'name' => 'PAN_SID',
