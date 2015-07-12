@@ -15,27 +15,49 @@ use Panada\Resources;
  */
 class Session
 {
-    private $driver;
-    private $config;
+    private $config = [
+        'expiration' => 7200,
+        'name' => 'PAN_SID',
+        'cookieExpire' => 0,
+        'cookiePath' => '/',
+        'cookieSecure' => false,
+        'cookieDomain' => '',
+        'cookieDomain' => '',
+        'driver' => 'native', /* The option is 'native', 'cookie', cache or 'database' */
+        'driverConnection' => 'default',
+        'storageName' => 'sessions',
+        'isEncrypt' => false,
+        'secretKey' => '123'
+    ];
 
-    public function __construct($connection = 'default')
+    public function __construct($config = [])
     {
-        $this->config = Resources\Config::session();
-        $this->config = $this->config[$connection];
-        $this->init();
+        $this->setOption($config);
     }
 
     /**
-     * Overrider for session config option located at file app/config/session.php
+     * Overrider for session config option.
      *
      * @param array $option The new option.
      * @return void
      * @since version 1.0
      */
-    public function setOption($option = array())
+    public function setOption($config = [])
     {
-        $this->config = array_merge($this->config, $option);
+        $this->config = array_merge($this->config, $config);
         $this->init();
+    }
+    
+    /**
+     * Instantiate the driver class
+     *
+     * @return void
+     * @since version 1.0
+     */
+    private function init()
+    {
+        $driverNamespace = 'Panada\Session\Drivers\\' . ucwords($this->config['driver']);
+        $this->driver = new $driverNamespace($this->config);
     }
 
     /**
@@ -71,17 +93,5 @@ class Session
     public function __set($name, $value)
     {
         $this->driver->$name = $value;
-    }
-
-    /**
-     * Instantiate the driver class
-     *
-     * @return void
-     * @since version 1.0
-     */
-    private function init()
-    {
-        $driverNamespace = 'Panada\Session\Drivers\\' . ucwords($this->config['driver']);
-        $this->driver = new $driverNamespace($this->config);
     }
 }
