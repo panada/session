@@ -75,9 +75,9 @@ class Native implements \Panada\Session\SessionInterface
         $this->sessionCookieDomain = $config['cookieDomain'];
         $this->sessionStore = $config['driver'];
 
-        \ini_set('session.gc_maxlifetime', $this->sesionExpire);
+        ini_set('session.gc_maxlifetime', $this->sesionExpire);
 
-        \session_set_cookie_params(
+        session_set_cookie_params(
             $this->sessionCookieExpire,
             $this->sessionCookiePath,
             $this->sessionCookieDomain,

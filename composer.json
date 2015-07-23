@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Panada\\Session\\": "src/"
+            "Panada\\Session\\": ""
         }
     },
     "minimum-stability": "dev"

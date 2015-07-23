@@ -12,9 +12,9 @@ use Panada\Resources;
  * @author      Iskandar Soesman
  * @since       Version 0.3
  */
-class Cookie
+class Cookie implements \Panada\Session\SessionInterface
 {
-    public $sessionName = 'PAN_SID';
+    public $sessionName = 'PANSID';
     public $sessionCookieExpire = 0;
     public $sessionCookiePath = '/';
     public $sessionCookieSecure = false;
@@ -116,7 +116,7 @@ class Cookie
      *
      * @return void
      */
-    private function setSessionValues()
+    protected function setSessionValues()
     {
         $value = http_build_query($this->curentValues);
 
@@ -136,7 +136,7 @@ class Cookie
      * @param string $value
      * @return void
      */
-    private function setCookie($name, $value = '')
+    protected function setCookie($name, $value = '')
     {
         setcookie(
             $name,

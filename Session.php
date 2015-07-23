@@ -24,16 +24,27 @@ class Session
         'cookieSecure' => false,
         'cookieDomain' => '',
         'cookieDomain' => '',
-        'driver' => 'native', /* The option is 'native', 'cookie', cache or 'database' */
+        'driver' => 'native', /* The option is 'native', 'cookie', cookies, cache or 'database' */
         'driverConnection' => 'default',
         'storageName' => 'sessions',
         'isEncrypt' => false,
         'secretKey' => '123'
     ];
+    
+    protected static $instance = [];
 
     public function __construct($config = [])
     {
         $this->setOption($config);
+    }
+    
+    public static function getInstance($type = 'default')
+    {
+        if (! isset(self::$instance[$type])) {
+            self::$instance[$type] = new static(\Panada\Resources\Config::session()[$type]);
+        }
+        
+        return self::$instance[$type];
     }
 
     /**
