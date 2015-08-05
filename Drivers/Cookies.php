@@ -2,13 +2,13 @@
 
 namespace Panada\Session\Drivers;
 
-use Panada\Resources;
+use Panada\Resource;
 
 class Cookies extends Cookie
 {
     public function __construct($config)
     {
-        $this->response = \Panada\Resources\Response::getInstance();
+        $this->response = \Panada\Resource\Response::getInstance();
         
         parent::__construct($config);
     }

@@ -2,12 +2,12 @@
 
 namespace Panada\Session;
 
-use Panada\Resources;
+use Panada\Resource;
 
 /**
  * Panada session Handler.
  *
- * @package  Resources
+ * @package  Resource
  * @link     http://panadaframework.com/
  * @license  http://www.opensource.org/licenses/bsd-license.php
  * @author   Iskandar Soesman <k4ndar@yahoo.com>
@@ -41,7 +41,7 @@ class Session
     public static function getInstance($type = 'default')
     {
         if (! isset(self::$instance[$type])) {
-            self::$instance[$type] = new static(\Panada\Resources\Config::session()[$type]);
+            self::$instance[$type] = new static(\Panada\Resource\Config::session()[$type]);
         }
         
         return self::$instance[$type];

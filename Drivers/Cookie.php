@@ -2,7 +2,7 @@
 
 namespace Panada\Session\Drivers;
 
-use Panada\Resources;
+use Panada\Resource;
 
 /**
  * Cookies base session.
@@ -45,7 +45,7 @@ class Cookie implements \Panada\Session\SessionInterface
 
         // Decrypt the value before use it.
         if ($this->isEncrypt) {
-            $this->encryption = new Resources\Encryption($config['secretKey']);
+            $this->encryption = new Resource\Encryption($config['secretKey']);
 
             if (isset($_COOKIE[$this->sessionName])) {
                 $_COOKIE[$this->sessionName] = $this->encryption->decrypt($_COOKIE[$this->sessionName]);
