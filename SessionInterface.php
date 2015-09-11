@@ -8,7 +8,7 @@ namespace Panada\Session;
  * @package  Session
  * @author   Iskandar Soesman <k4ndar@yahoo.com>
  * @link     http://panadaframework.com/
- * @license  http://www.opensource.org/licenses/bsd-license.php
+ * @license  http://opensource.org/licenses/MIT
  * @since    version 1.0.0
  */
 interface SessionInterface
